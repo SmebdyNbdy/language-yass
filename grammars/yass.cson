@@ -1731,7 +1731,7 @@
           [-\\[:.*\\#a-zA-Z_&]       # Valid selector character
           |
           [^\\x00-\\x7F]            # Which can include non-ASCII symbols
-          |
+          | [&] |
           \\\\                      # Or an escape sequence
           (?:[0-9a-fA-F]{1,6}|.)
         )
@@ -1771,11 +1771,11 @@
             \\|
             (?!
                 [-\\[:.*\\#a-zA-Z_&]    # Make sure there's a selector to match
-              | [^(\\x00-\\x7F | \&)]
+              | [^\\x00-\\x7F] | [&]
             )
           )
           (
-            (?: [\&-a-zA-Z_]    | [^\\x00-\\x7F] )   # First letter
+            (?: [&-a-zA-Z_]    | [^\\x00-\\x7F] )   # First letter
             (?: [-a-zA-Z0-9_] | [^\\x00-\\x7F]     # Remainder of identifier
               | \\\\(?:[0-9a-fA-F]{1,6}|.)
             )*
@@ -1813,7 +1813,7 @@
               # Consists of a hyphen only
               -                                      # Terminated by either:
               (?= $                                  # - End-of-line
-                | [\\s,.\\#)\\[:{>+&~|]               # - Followed by another selector
+                | [\\s,.\\#&)\\[:{>+~|]               # - Followed by another selector
                 | /\\*                               # - Followed by a block comment
               )
               |
@@ -1829,7 +1829,7 @@
               )+
             )
             # Mark remainder of selector invalid
-            (?: [-a-zA-Z_0-9]|[^\\x00-\\x7F]         # - Otherwise valid identifier characters
+            (?: [-a-zA-Z_0-9]|[^\\x00-\\x7F]|[&]         # - Otherwise valid identifier characters
               | \\\\(?:[0-9a-fA-F]{1,6}|.)           # - Escape sequence
             )*
           )
@@ -1854,7 +1854,7 @@
             )+
           )                                      # Followed by either:
           (?= $                                  # - End of the line
-            | [\\s,.\\#)\\[:{>+&~|]               # - Another selector
+            | [\\s,.\\#&)\\[:{>+~|]               # - Another selector
             | /\\*                               # - A block comment
           )
         '''
