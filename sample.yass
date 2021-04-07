@@ -1,0 +1,30 @@
+.landing > article.threeColumns {
+    padding: 10vh 5vw
+    & > article {
+        display: grid
+        height: 100%
+        grid-template-columns: repeat(3, 1fr)
+        & > section {
+            display: grid
+            grid-template-rows: 1fr 16px 1fr
+            width: 24vw
+            grid-gap: 12px
+            margin: 12px
+            & > h2 {
+                font: var(--fnt32)
+                text-align: center
+                align-self: flex-end
+                margin: 0
+            }
+            & > hr {
+                margin: 16px 0
+                border: 1px solid var(--sec)
+            }
+            & > p {
+                margin: 16px 0
+                text-align:  center
+                font:  var(--fnt-inv)
+            }
+        }
+    }
+}
