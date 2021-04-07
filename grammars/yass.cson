@@ -1,9 +1,9 @@
-scopeName: 'source.yass'
-name: 'YASS (yet-another-style-sheet)'
-fileTypes: [ 'yass' ]
-limitLineLength: false
+'scopeName': 'source.yass'
+'name': 'YASS (yet-another-style-sheet)'
+'fileTypes': [ 'yass' ]
+'limitLineLength': false
 
-firstLineMatch: '''(?xi)
+'firstLineMatch': '''(?xi)
   -\\*-(?:\\s*(?=[^:;\\s]+\\s*-\\*-)|(?:.*?[;\\s]|(?<=-\\*-))mode\\s*:\\s*)
     yass
   (?=[\\s;]|(?<![-*])-\\*-).*?-\\*-
@@ -12,27 +12,27 @@ firstLineMatch: '''(?xi)
     yass
   (?=\\s|:|$)
 '''
-patterns: [
+'patterns': [
   {
-    include: '#comment-block'
+    'include': '#comment-block'
   }
   {
-    include: '#escapes'
+    'include': '#escapes'
   }
   {
-    include: '#combinators'
+    'include': '#combinators'
   }
   {
-    include: '#selector'
+    'include': '#selector'
   }
   {
-    include: '#at-rules'
+    'include': '#at-rules'
   }
   {
-    include: '#rule-list'
+    'include': '#rule-list'
   }
 ]
-repository:
+'repository':
   'at-rules':
     'patterns': [
       {
