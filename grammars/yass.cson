@@ -1728,7 +1728,7 @@
       (?=
         (?:\\|)?                    # Possible anonymous namespace prefix
         (?:
-          [-\\[:.*\\#a-zA-Z_]       # Valid selector character
+          [-\\[:.*\\#a-zA-Z_&]       # Valid selector character
           |
           [^\\x00-\\x7F]            # Which can include non-ASCII symbols
           |
@@ -1770,7 +1770,7 @@
             [-\\w*]+
             \\|
             (?!
-                [-\\[:.*\\#a-zA-Z_]    # Make sure there's a selector to match
+                [-\\[:.*\\#a-zA-Z_&]    # Make sure there's a selector to match
               | [^\\x00-\\x7F]
             )
           )
