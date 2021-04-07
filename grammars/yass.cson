@@ -1765,7 +1765,7 @@
           '2':
             'name': 'punctuation.separator.yass'
         'match': '''(?x)
-          (?:^|(?<=[\\s,(};]))         # Follows whitespace, comma, semicolon, or bracket
+          (?:^|(?<=[\\s,(};\n]))         # Follows whitespace, comma, semicolon, or bracket
           (?!
             [-\\w*]+
             \\|
